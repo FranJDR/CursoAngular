@@ -5,7 +5,7 @@ import { HomeComponent } from './shared/components/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: ' admin', component: AdminComponent },
+  // { path: ' admin', component: AdminComponent },
   {
     path: 'home', component: HomeComponent, children: [
       { path: 'music', loadChildren: () => import('../app/modules/music/music.module').then(m => m.MusicModule) },
