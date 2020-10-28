@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent, children: [
       { path: 'music', loadChildren: () => import('../app/modules/music/music.module').then(m => m.MusicModule) },
-      { path: 'users', loadChildren: () => import('../app/modules/users/users.module').then(m => m.UsersModule) },
+      { path: 'participants', loadChildren: () => import('../app/modules/participants/participants.module').then(m => m.ParticipantsModule) },
     ]
   }
 ];
