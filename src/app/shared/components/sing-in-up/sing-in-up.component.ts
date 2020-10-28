@@ -13,16 +13,31 @@ export class SingInUpComponent implements OnInit {
   reactiveForm: FormGroup;
   participants: Participant;
 
-  email: string;
-  password: string;
-  name: string;
-
   constructor(
     private formBuilder: FormBuilder,
     private participantsService: ParticipantsService
   ) { }
 
   ngOnInit(): void {
+    this.reactiveForm = this.createFormGroup();
+  }
+
+  private createFormGroup(): FormGroup {
+    return new FormGroup({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
+      ]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ])
+    });
   }
 
   singIn(): void {
@@ -30,8 +45,12 @@ export class SingInUpComponent implements OnInit {
   }
 
   singUp(): void {
-
+    if (this.reactiveForm.valid) {
+      this.participantsService.singUpParcipant(this.reactiveForm.value)
+        .then(() => {
+          this.reactiveForm.reset();
+        });
+    }
   }
-
 
 }

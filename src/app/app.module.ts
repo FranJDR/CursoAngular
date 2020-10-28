@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './shared/components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { SingInUpComponent } from './shared/components/sing-in-up/sing-in-up.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SingInUpComponent } from './shared/components/sing-in-up/sing-in-up.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ParticipantsService
