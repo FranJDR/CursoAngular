@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { ArtistComponent } from './artist/artist.component';
-import { AlbumComponent } from './album/album.component';
-import { HomeMusicComponent } from './home-music/home-music.component';
-
 import { MusicRoutingModule } from './music-routing.module';
+import { ArtistComponent } from './components/artist/artist.component';
+import { HomeMusicComponent } from './components/home-music/home-music.component';
+import { AlbumComponent } from './components/album/album.component';
 
 @NgModule({
   declarations: [
