@@ -12,4 +12,12 @@ export class SingInUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  singIn(): void {
+
+  }
+
+  singUp(): void {
+
+  }
+
 }
