@@ -5,6 +5,9 @@
     <div>
         <button [routerLink]="['participants']" class="btn btn-light">Participants</button>
     </div>
+    <div>
+        <button (click)="singInUp()" class="btn btn-light">sing in/sing up</button>
+    </div>
 </header>
 
 <router-outlet></router-outlet>
