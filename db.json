@@ -1,5 +1,12 @@
 {
-  "participants": [],
+  "participants": [
+    {
+      "email": "prueba@email.es",
+      "name": "frandr",
+      "password": "password",
+      "id": 1
+    }
+  ],
   "album": [],
   "artist": []
 }

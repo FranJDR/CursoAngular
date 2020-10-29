@@ -27,7 +27,7 @@ export class SingInUpComponent implements OnInit {
       email: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
-        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
+        Validators.pattern("^[^@]+@[^@]+\.[a-zA-Z]{2,}$")
       ]),
       name: new FormControl('', [
         Validators.required,
@@ -53,4 +53,7 @@ export class SingInUpComponent implements OnInit {
     }
   }
 
+  get name() { return this.reactiveForm.get('name'); }
+  get email() { return this.reactiveForm.get('email'); }
+  get password() { return this.reactiveForm.get('password'); }
 }
