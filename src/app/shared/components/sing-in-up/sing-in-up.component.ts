@@ -1,7 +1,7 @@
-import { ParticipantsService } from './../../services/participants/participants.service';
-import { Participant } from './../../models/participant';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ParticipantsService } from '../../services/participants/participants.service';
 
 @Component({
   selector: 'app-sing-in-up',
@@ -11,11 +11,11 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class SingInUpComponent implements OnInit {
 
   reactiveForm: FormGroup;
-  participants: Participant;
 
   constructor(
     private formBuilder: FormBuilder,
-    private participantsService: ParticipantsService
+    private participantsService: ParticipantsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
