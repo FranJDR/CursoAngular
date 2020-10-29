@@ -11,6 +11,13 @@ export class ParticipantsService {
 
   constructor(private httpClient: HttpClient) { }
 
+  singIn(): void {
+    sessionStorage.setItem('id', '');
+    if (sessionStorage) {
+
+    }
+  }
+
   singUpParcipant(participant: Participant): Promise<any> {
     return this.httpClient.post(this.url, participant).toPromise()
       .then(() => {

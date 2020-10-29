@@ -8,7 +8,13 @@ export class NotificationsService {
 
   constructor(private matSnackbar: MatSnackBar) { }
 
-  successfullyRegistered() {
-    this.matSnackbar.open('SUCCESSFULLY REGISTERED', 'ok', { duration: 3000 })
+  private open(message: string) {
+    this.matSnackbar.open(message, 'ok', { duration: 1500 });
   }
+
+  successfullyRegistered() { this.open('SUCCESSFULLY REGISTERED.'); }
+  itemDelete() { this.open('Item delete.'); }
+  itemCreate() { this.open('Item create.'); }
+  itemEdit() { this.open('Item edit.'); }
+
 }
