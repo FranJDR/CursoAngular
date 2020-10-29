@@ -6,7 +6,7 @@ import { ParticipantsRoutingModule } from './participants-routing.module';
 
 import { HomeParticipantsComponent } from './components/home-participants/home-participants.component';
 import { MaterialModule } from 'src/app/material.module';
-// import { CdkTableModule } from '@angular/cdk/table';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { MaterialModule } from 'src/app/material.module';
     ParticipantsRoutingModule,
     RouterModule,
     MaterialModule,
-    // CdkTableModule,
+    FormsModule
   ]
 })
 export class ParticipantsModule { }

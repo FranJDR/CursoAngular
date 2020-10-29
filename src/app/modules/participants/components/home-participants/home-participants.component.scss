@@ -5,3 +5,15 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+.my-btn {
+  background: transparent;
+  border: 1px solid white;
+  margin: 10px;
+}
+
+.my-btn:hover {
+  background: #ffe6ff;
+  border: 1px solid #660066;
+  border-radius: 30%;
+}

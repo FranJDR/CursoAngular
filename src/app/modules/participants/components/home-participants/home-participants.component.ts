@@ -12,16 +12,23 @@ import { ParticipantsService } from 'src/app/shared/services/participants/partic
 })
 export class HomeParticipantsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'password'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'password', 'operators'];
   dataSource;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private participantsService: ParticipantsService) { }
+  constructor(
+    private participantsService: ParticipantsService) { }
 
   ngOnInit(): void {
     this.participantsService.getListParticipants().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.sort = this.sort;
+    });
+  }
+
+  deleteParticipan(id): void {
+    this.participantsService.deleteParcipant(id).then(() => {
+      window.location.reload();
     });
   }
 
