@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Participant } from '../../models/participant';
 
 @Injectable({
@@ -16,6 +18,11 @@ export class ParticipantsService {
     if (sessionStorage) {
 
     }
+  }
+
+  getListParticipants(): Observable<Participant[]> {
+    return this.httpClient.get(this.url)
+      .pipe(map((res: Participant[]) => res));
   }
 
   singUpParcipant(participant: Participant): Promise<any> {
