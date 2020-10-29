@@ -13,8 +13,7 @@ import { SingInUpComponent } from './shared/components/sing-in-up/sing-in-up.com
 // SERVICES
 import { ParticipantsService } from './shared/services/participants/participants.service';
 import { NotificationsService } from './shared/services/notifications/notifications.service';
-// ANGULAR MATERIAL
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MaterialModule
   ],
   providers: [
     ParticipantsService,

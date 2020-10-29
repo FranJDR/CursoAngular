@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Participant } from 'src/app/shared/models/participant';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ParticipantsService } from 'src/app/shared/services/participants/participants.service';
+
 
 @Component({
   selector: 'app-home-participants',
@@ -10,14 +12,16 @@ import { ParticipantsService } from 'src/app/shared/services/participants/partic
 })
 export class HomeParticipantsComponent implements OnInit {
 
-  participants: Participant[];
+  displayedColumns: string[] = ['id', 'name', 'email', 'password'];
+  dataSource;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private participantsService: ParticipantsService) { }
 
   ngOnInit(): void {
     this.participantsService.getListParticipants().subscribe(res => {
-      this.participants = res;
-      console.log(this.participants);
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.sort = this.sort;
     });
   }
 

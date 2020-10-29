@@ -59,6 +59,12 @@
       "name": "sadasdasdffsdfdsfds",
       "password": "12312312321",
       "id": 10
+    },
+    {
+      "email": "coral@gmail.com",
+      "name": "coral",
+      "password": "123123123",
+      "id": 11
     }
   ],
   "album": [],
