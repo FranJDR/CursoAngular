@@ -32,6 +32,15 @@
             </div>
 
             <input type="password" formControlName="password" placeholder="Password" />
+            <div class="alert-danger" *ngIf="password.invalid && password.dirty">
+                <div container-error-message *ngIf="password.errors.required">
+                    Email is required.
+                </div>
+                <div class="container-error-message" *ngIf="password.errors.minlength">
+                    Email must be at least 8 chracters log.
+                </div>
+            </div>
+
             <button type="submit" [disabled]="!reactiveForm.valid" class="btn-send">Sign Up</button>
         </form>
     </div>
