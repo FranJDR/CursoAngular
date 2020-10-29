@@ -5,6 +5,24 @@
       "name": "frandr",
       "password": "password",
       "id": 1
+    },
+    {
+      "email": "prueba2@gmail.com",
+      "name": "prueba2",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "email": "prueba3@gmail.com",
+      "name": "prueba3",
+      "password": "12345678",
+      "id": 3
+    },
+    {
+      "email": "prueba10@gmail.es",
+      "name": "prueba10",
+      "password": "12345678",
+      "id": 4
     }
   ],
   "album": [],

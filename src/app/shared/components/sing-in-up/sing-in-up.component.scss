@@ -5,9 +5,8 @@
 	box-sizing: border-box;
 }
 
-.btn-send:hover:not([disabled]) {
+.btn-send:not([disabled]) {
 	 background-color: #3c97bf;
-	 color: black;
 }
 
 body {
