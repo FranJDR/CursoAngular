@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NotificationsService } from '../../services/notifications/notifications.service';
 import { ParticipantsService } from '../../services/participants/participants.service';
 
 @Component({
@@ -13,9 +13,8 @@ export class SingInUpComponent implements OnInit {
   reactiveForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
     private participantsService: ParticipantsService,
-    private router: Router
+    private notifications: NotificationsService
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +48,7 @@ export class SingInUpComponent implements OnInit {
       this.participantsService.singUpParcipant(this.reactiveForm.value)
         .then(() => {
           this.reactiveForm.reset();
+          this.notifications.successfullyRegistered();
         });
     }
   }

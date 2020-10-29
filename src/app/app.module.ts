@@ -1,14 +1,20 @@
-import { ParticipantsService } from './shared/services/participants/participants.service';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './shared/components/home/home.component';
 import { RouterModule } from '@angular/router';
-import { SingInUpComponent } from './shared/components/sing-in-up/sing-in-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// COMPONENTS
+import { AppComponent } from './app.component';
+import { HomeComponent } from './shared/components/home/home.component';
+import { SingInUpComponent } from './shared/components/sing-in-up/sing-in-up.component';
+// SERVICES
+import { ParticipantsService } from './shared/services/participants/participants.service';
+import { NotificationsService } from './shared/services/notifications/notifications.service';
+// ANGULAR MATERIAL
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,10 +29,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [
-    ParticipantsService
+    ParticipantsService,
+    NotificationsService
   ],
   bootstrap: [AppComponent]
 })
