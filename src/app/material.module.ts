@@ -16,6 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
 
 
 const myModuleMaterial = [
@@ -34,7 +35,8 @@ const myModuleMaterial = [
   MatDialogModule,
   MatSortModule,
   MatSnackBarModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatSelectModule
 ]
 
 

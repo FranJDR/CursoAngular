@@ -8,7 +8,6 @@ import { HomeParticipantsComponent } from './components/home-participants/home-p
 import { MaterialModule } from 'src/app/material.module';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     HomeParticipantsComponent

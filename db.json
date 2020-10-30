@@ -7,28 +7,22 @@
       "id": 2
     },
     {
-      "email": "prueba3@gmail.com",
-      "name": "prueba3",
-      "password": "12345678",
-      "id": 3
-    },
-    {
       "email": "prueba10@gmail.es",
       "name": "prueba10",
       "password": "12345678",
       "id": 4
     },
     {
-      "email": "prueba11@gmail.com",
-      "name": "prueba11",
-      "password": "12344567",
-      "id": 5
+      "email": "fernando@gmail.com",
+      "name": "fernando",
+      "password": "123123123",
+      "id": 8
     },
     {
-      "email": "prueba15@gmail.com",
-      "name": "prueba15",
-      "password": "12345667",
-      "id": 6
+      "email": "asdasd@gmail.com",
+      "name": "sadsad",
+      "password": "123123123",
+      "id": 9
     }
   ],
   "album": [],

@@ -14,12 +14,14 @@ import { SingInUpComponent } from './shared/components/sing-in-up/sing-in-up.com
 import { ParticipantsService } from './shared/services/participants/participants.service';
 import { NotificationsService } from './shared/services/notifications/notifications.service';
 import { MaterialModule } from './material.module';
+import { DialogEditParticipantComponent } from './shared/components/dialogEditParticipant/dialog-edit-participant/dialog-edit-participant.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SingInUpComponent
+    SingInUpComponent,
+    DialogEditParticipantComponent
   ],
   imports: [
     BrowserModule,
