@@ -21,7 +21,6 @@ export class ViewDetailsComponent implements OnInit {
     let id = this.router.snapshot.paramMap.get('id');
     this.participantsService.getParticipant(id).then(res => {
       this.participant = res;
-      console.log(res);
     });
   }
 

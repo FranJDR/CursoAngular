@@ -1,0 +1,22 @@
+.myform {
+    border: 2px solid #cc66ff;
+    border-radius: 10px;;
+    min-width: 1000px;
+    padding: 20px;
+}
+
+.myform div {
+    margin: 10px;
+}
+
+.mylabel{
+    color: blue;
+    font-weight: bold;
+}
+
+.contenedor {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
