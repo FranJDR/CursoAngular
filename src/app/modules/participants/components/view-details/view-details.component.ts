@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Participant } from 'src/app/shared/models/participant';
+import { ParticipantsService } from 'src/app/shared/services/participants/participants.service';
 
 @Component({
   selector: 'app-view-details',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewDetailsComponent implements OnInit {
 
-  constructor() { }
+  participant: Participant;
+
+  constructor(
+    private participantsService: ParticipantsService,
+    private router: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    let id = this.router.snapshot.paramMap.get('id');
+    this.participantsService.getParticipant(id).then(res => {
+      this.participant = res;
+      console.log(res);
+    });
+  }
+
+  editProfile(): void {
+    this.participantsService.editParcipant(this.participant);
+    window.location.reload();
   }
 
 }
