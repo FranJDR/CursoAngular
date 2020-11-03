@@ -18,7 +18,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 
-
 const myModuleMaterial = [
   MatFormFieldModule,
   MatCardModule,

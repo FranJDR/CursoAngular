@@ -1,63 +1,58 @@
 <div class="contenedor">
+
     <form class="myform">
-        <h2 for="formGroupExampleInput" style="color: #cc66ff;  font-weight: bold; text-align: center;">PROFILE</h2>
-        <input type="hidden" value="{{participant.id}}">
+        <h2 style="color:black;  font-weight: bold; text-align: center;">PROFILE</h2>
+
+        <div style="display: flex; justify-content: center;">
+            <img src="https://i.blogs.es/af261d/escape_velocity/450_1000.jpg" alt="" class="myImg">
+        </div>
 
         <div class="form-row">
             <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Name :</label>
-                <input type="text" class="form-control" value="{{participant.name}}" placeholder="name">
+                <label class="mylabel">Name :</label>
+                <input type="text" class="form-control" [(ngModel)]="participant.name" value="{{participant.name}}"
+                    placeholder="name">
             </div>
             <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Email :</label>
+                <label class="mylabel">Email :</label>
                 <input type="text" class="form-control" placeholder="email" value="{{participant.email}}">
             </div>
+        </div>
+
+        <div class="form-row">
             <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Age :</label>
+                <label class="mylabel">Center :</label>
+                <input type="text" class="form-control" placeholder="center" value="{{participant.center}}">
+            </div>
+            <div class="col">
+                <label class="mylabel">Age :</label>
                 <input type="text" class="form-control" placeholder="age" value="{{participant.age}}">
             </div>
         </div>
 
         <div class="form-row">
             <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Center</label>
-                <input type="text" class="form-control" placeholder="center">
-            </div>
-            <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Example label</label>
-                <input type="text" class="form-control" placeholder="Last name">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="col">
-                <h2 for="formGroupExampleInput" style="color: #cc66ff;  font-weight: bold; text-align: center;">ADDRESS
-                </h2>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Street</label>
+                <label class="mylabel">Street :</label>
                 <input type="text" class="form-control" placeholder="Street" value="{{participant.address.street}}">
             </div>
             <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Postal Code</label>
-                <input type="text" class="form-control" placeholder="postal code">
+                <label class="mylabel">Postal Code :</label>
+                <input type="text" class="form-control" placeholder="postal code" value="{{participant.address.cp}}">
             </div>
             <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">City</label>
-                <input type="text" class="form-control" placeholder="city">
+                <label class="mylabel">City :</label>
+                <input type="text" class="form-control" placeholder="city" value="{{participant.address.city}}">
             </div>
             <div class="col">
-                <label for="formGroupExampleInput" class="mylabel">Province</label>
-                <input type="text" class="form-control" placeholder="province">
+                <label class="mylabel">Province :</label>
+                <input type="text" class="form-control" placeholder="province" value="{{participant.address.province}}">
             </div>
         </div>
 
         <div class="form-row">
-            <button class="form-control btn btn-primary">Edit</button>
+            <button class="form-control btn btn-dark">Edit</button>
         </div>
 
     </form>
+
 </div>

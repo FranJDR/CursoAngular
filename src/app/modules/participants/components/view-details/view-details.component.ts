@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Participant } from 'src/app/shared/models/participant';
 import { ParticipantsService } from 'src/app/shared/services/participants/participants.service';
 
@@ -21,6 +21,7 @@ export class ViewDetailsComponent implements OnInit {
     let id = this.router.snapshot.paramMap.get('id');
     this.participantsService.getParticipant(id).then(res => {
       this.participant = res;
+      console.log(this.participant);
     });
   }
 
