@@ -5,7 +5,8 @@ import { RouterModule } from '@angular/router';
 import { ParticipantsRoutingModule } from './participants-routing.module';
 
 import { HomeParticipantsComponent } from './components/home-participants/home-participants.component';
-
+import { MaterialModule } from 'src/app/material.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { HomeParticipantsComponent } from './components/home-participants/home-p
   imports: [
     CommonModule,
     ParticipantsRoutingModule,
-    RouterModule
+    RouterModule,
+    MaterialModule,
+    FormsModule
   ]
 })
 export class ParticipantsModule { }

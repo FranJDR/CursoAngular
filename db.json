@@ -1,22 +1,10 @@
 {
   "participants": [
     {
-      "email": "prueba@email.es",
-      "name": "frandr",
-      "password": "password",
-      "id": 1
-    },
-    {
       "email": "prueba2@gmail.com",
       "name": "prueba2",
       "password": "12345678",
       "id": 2
-    },
-    {
-      "email": "prueba3@gmail.com",
-      "name": "prueba3",
-      "password": "12345678",
-      "id": 3
     },
     {
       "email": "prueba10@gmail.es",
@@ -25,40 +13,16 @@
       "id": 4
     },
     {
-      "email": "prueba11@gmail.com",
-      "name": "prueba11",
-      "password": "12344567",
-      "id": 5
-    },
-    {
-      "email": "prueba15@gmail.com",
-      "name": "prueba15",
-      "password": "12345667",
-      "id": 6
-    },
-    {
-      "email": "ASDASD@ASDAS.COM",
-      "name": "ASDAS",
-      "password": "123213213",
-      "id": 7
-    },
-    {
-      "email": "asdasdas@gmail.com",
-      "name": "asdasds",
-      "password": "123213213",
+      "email": "fernando@gmail.com",
+      "name": "fernando",
+      "password": "123123123",
       "id": 8
     },
     {
-      "email": "asdas@dasdasd.es",
-      "name": "asdasd",
-      "password": "213123213",
+      "email": "asdasd@gmail.com",
+      "name": "sadsad",
+      "password": "123123123",
       "id": 9
-    },
-    {
-      "email": "123123@asds.es",
-      "name": "sadasdasdffsdfdsfds",
-      "password": "12312312321",
-      "id": 10
     }
   ],
   "album": [],

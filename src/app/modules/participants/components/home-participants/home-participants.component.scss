@@ -1,3 +1,24 @@
-button {
-    margin: 10px;
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.my-btn {
+  background: transparent;
+  border: 1px solid white;
+  margin: 10px;
+}
+
+.my-btn:hover {
+  background: #ffe6ff;
+  border: 1px solid #660066;
+  border-radius: 30%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
 }

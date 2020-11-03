@@ -9,7 +9,7 @@ export class NotificationsService {
   constructor(private matSnackbar: MatSnackBar) { }
 
   private open(message: string) {
-    this.matSnackbar.open(message, 'ok', { duration: 1500 });
+    this.matSnackbar.open(message, 'ok', { duration: 3000 });
   }
 
   successfullyRegistered() { this.open('SUCCESSFULLY REGISTERED.'); }

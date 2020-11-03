@@ -20,6 +20,10 @@ export class ParticipantsService {
     }
   }
 
+  getParticipant(id: string): Promise<Participant> {
+    return this.httpClient.get(this.url + '/' + id).toPromise();
+  }
+
   getListParticipants(): Observable<Participant[]> {
     return this.httpClient.get(this.url)
       .pipe(map((res: Participant[]) => res));

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  singInUp() {
+  navigateSingInUp() {
     this.router.navigate(['home/singInUp']).then(() => {
       window.location.reload();
     });

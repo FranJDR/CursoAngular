@@ -1,17 +1,47 @@
-<button class="btn btn-dark">Estas en home participants</button>
-<table border="2">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Password</th>
-    </tr>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
 
-    <tr *ngFor="let user of participants;">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.password }}</td>
-    </tr>
+<table mat-table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
+        <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="operators">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Operators </th>
+        <td mat-cell *matCellDef="let element">
+            <button class="my-btn">
+                <span class="material-icons">visibility</span>
+            </button>
+            <button class="my-btn">
+                <span class="material-icons">edit</span>
+            </button>
+            <button class="my-btn">
+                <span class=" material-icons" (click)="deleteParticipan(element.id)">delete_forever</span>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef=" displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+
 <router-outlet></router-outlet>
