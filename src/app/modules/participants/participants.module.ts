@@ -7,10 +7,12 @@ import { ParticipantsRoutingModule } from './participants-routing.module';
 import { HomeParticipantsComponent } from './components/home-participants/home-participants.component';
 import { MaterialModule } from 'src/app/material.module';
 import { FormsModule } from '@angular/forms';
+import { ViewDetailsComponent } from './components/view-details/view-details.component';
 
 @NgModule({
   declarations: [
-    HomeParticipantsComponent
+    HomeParticipantsComponent,
+    ViewDetailsComponent
   ],
   imports: [
     CommonModule,
