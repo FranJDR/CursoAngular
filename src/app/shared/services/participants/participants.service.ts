@@ -1,3 +1,4 @@
+import { Address } from './../../models/address';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -30,7 +31,25 @@ export class ParticipantsService {
   }
 
   singUpParcipant(participant: Participant): Promise<any> {
-    return this.httpClient.post(this.url, participant).toPromise()
+    let aux: Participant = {
+      name: participant.name,
+      email: participant.email,
+      password: participant.password,
+      center: '',
+      phone: '',
+      age: '',
+      urlImg: '',
+      address: {
+        street: '',
+        city: '',
+        cp: '',
+        province: ''
+      },
+      idsFavAlbum: [],
+      idsFavArtist: [],
+      idsFavSong: []
+    };
+    return this.httpClient.post(this.url, aux).toPromise()
       .then(() => {
         console.log('Usuario creado.');
       })

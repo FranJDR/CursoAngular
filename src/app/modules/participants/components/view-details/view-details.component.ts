@@ -34,7 +34,7 @@ export class ViewDetailsComponent implements OnInit {
     let id = this.router.snapshot.paramMap.get('id');
     this.participantsService.getParticipant(id).then(res => {
       this.participant = res;
-      if (this.participant.urlImg == undefined || this.participant.urlImg.localeCompare('') == 0) {
+      if (this.participant.urlImg.localeCompare('') == 0) {
         this.participant.urlImg = this.obtenerImgRandom();
       }
       this.myFormGroup = this.createFormGroup();
@@ -45,14 +45,14 @@ export class ViewDetailsComponent implements OnInit {
     return new FormGroup({
       name: new FormControl(this.participant.name),
       email: new FormControl(this.participant.email),
-      center: new FormControl(this.participant.center == undefined ? '' : this.participant.center),
-      age: new FormControl(this.participant.age == undefined ? '' : this.participant.age),
-      phone: new FormControl(this.participant.phone == undefined ? '' : this.participant.phone),
+      center: new FormControl(this.participant.center),
+      age: new FormControl(this.participant.age),
+      phone: new FormControl(this.participant.phone),
       urlImg: new FormControl(''),
-      street: new FormControl(this.participant.address.street == undefined ? '' : this.participant.address.street),
-      postalCode: new FormControl(this.participant.address.cp == undefined ? '' : this.participant.address.cp),
-      city: new FormControl(this.participant.address.city == undefined ? '' : this.participant.address.city),
-      province: new FormControl(this.participant.address.province == undefined ? '' : this.participant.address.province),
+      street: new FormControl(this.participant.address.street),
+      postalCode: new FormControl(this.participant.address.cp),
+      city: new FormControl(this.participant.address.city),
+      province: new FormControl(this.participant.address.province),
     });
   }
 

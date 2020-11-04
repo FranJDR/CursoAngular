@@ -7,7 +7,7 @@ export class Participant {
     email?: string;
     password?: string;
     phone?: string;
-    age?: number;
+    age?: string;
     center?: string;
     urlImg?: string;
 
