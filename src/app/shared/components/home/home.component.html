@@ -2,7 +2,9 @@
   <a [routerLink]="['music']">Home</a>
   <a [routerLink]="['participants']">Participants</a>
   <div class="login-container">
-    <button type="submit" [routerLink]="['/home/singInUp']">sing in/sing up</button>
+    <img src="{{ img }}" alt="" class="myimg">
+    <h2>{{ name }}</h2>
+    <button (click)="singOff()">Sing Off</button>
   </div>
 </div>
 

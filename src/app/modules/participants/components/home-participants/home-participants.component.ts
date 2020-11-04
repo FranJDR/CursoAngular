@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ParticipantsService } from 'src/app/shared/services/participants/participants.service';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -17,7 +18,9 @@ export class HomeParticipantsComponent implements OnInit {
   id;
   displayedColumns: string[] = ['id', 'name', 'email', 'password', 'operators'];
   dataSource;
+
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(
     private participantsService: ParticipantsService,
@@ -29,6 +32,7 @@ export class HomeParticipantsComponent implements OnInit {
     this.participantsService.getListParticipants().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
   }
 

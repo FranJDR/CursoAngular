@@ -10,6 +10,15 @@ body {
   background: linear-gradient(10deg, #3399ff, #cc66ff);
 }
 
+.myimg {
+  border-radius: 150px;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-right: 5px;
+  background-origin: 2px solid black;
+}
+
 .topnav a {
   float: left;
   display: block;
@@ -29,6 +38,9 @@ body {
 
 .topnav .login-container {
   float: right;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
 }
 
 .topnav input[type=text] {
@@ -42,13 +54,21 @@ body {
 .topnav .login-container button {
   float: right;
   padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
+  // margin-top: 8px;
+  // margin-right: 16px;
+  margin: auto;
   background-color: #555;
   color: white;
   font-size: 17px;
   border: none;
   cursor: pointer;
+  border-radius: 20px;
+}
+
+.topnav .login-container h2 {
+  margin-right: 10px;
+  margin: auto;
+  margin-right: 5px;
 }
 
 .topnav .login-container button:hover {

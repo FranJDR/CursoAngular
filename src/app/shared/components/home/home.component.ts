@@ -1,4 +1,6 @@
+import { SessionService } from './../../services/session/session.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  name: string = '';
+  img: string = '';
+
+  constructor(
+    private sessionService: SessionService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    
+    this.name = this.sessionService.name;
+    this.img = this.sessionService.urlImg;
+    console.log(name + "  " + this.img);
+  }
+
+  singOff() {
+    this.sessionService.signOff();
   }
 
 }

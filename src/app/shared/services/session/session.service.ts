@@ -1,6 +1,7 @@
 import { Participant } from 'src/app/shared/models/participant';
 import { Injectable } from '@angular/core';
 import { ParticipantsService } from '../participants/participants.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class SessionService {
   private _login: boolean = false;
 
   constructor(
-    private participant: ParticipantsService
+    private participant: ParticipantsService,
+    private router: Router
   ) { }
 
   singIn(email: string, password: string) {
@@ -20,6 +22,7 @@ export class SessionService {
         if (email.localeCompare(element.email) == 0 && password.localeCompare(element.password) == 0) {
           this._user = element;
           this._login = true;
+          this.router.navigate(['home']);
         }
       });
     });
@@ -28,6 +31,7 @@ export class SessionService {
   signOff() {
     this._user = {};
     this._login = false;
+    this.router.navigate(['singInUp']);
   }
 
   obtenerImgRandom() {
