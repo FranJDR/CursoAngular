@@ -13,6 +13,7 @@ export class NotificationsService {
   }
 
   successfullyRegistered() { this.open('SUCCESSFULLY REGISTERED.'); }
+  sessionStarted() { this.open('Session Started'); }
   itemDelete() { this.open('Item delete.'); }
   itemCreate() { this.open('Item create.'); }
   itemEdit() { this.open('Item edit.'); }

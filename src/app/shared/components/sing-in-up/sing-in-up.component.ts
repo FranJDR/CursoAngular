@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { SessionService } from './../../services/session/session.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from '../../services/notifications/notifications.service';
 import { ParticipantsService } from '../../services/participants/participants.service';
@@ -8,20 +9,26 @@ import { ParticipantsService } from '../../services/participants/participants.se
   templateUrl: './sing-in-up.component.html',
   styleUrls: ['./sing-in-up.component.scss']
 })
-export class SingInUpComponent implements OnInit {
+export class SingInUpComponent implements OnInit, AfterViewInit {
 
-  reactiveForm: FormGroup;
+  reactiveFormSingUp: FormGroup;
+
+  singInForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
 
   constructor(
     private participantsService: ParticipantsService,
-    private notifications: NotificationsService
+    private notifications: NotificationsService,
+    private sessionService: SessionService
   ) { }
 
   ngOnInit(): void {
-    this.reactiveForm = this.createFormGroup();
+    this.reactiveFormSingUp = this.createFormGroupSingUp();
   }
 
-  private createFormGroup(): FormGroup {
+  private createFormGroupSingUp(): FormGroup {
     return new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -40,20 +47,37 @@ export class SingInUpComponent implements OnInit {
   }
 
   singIn(): void {
-
+    let email = this.singInForm.value.email;
+    let password = this.singInForm.value.password;
+    this.sessionService.singIn(email, password);
+    if (this.sessionService.login) this.notifications.sessionStarted();
   }
 
   singUp(): void {
-    if (this.reactiveForm.valid) {
-      this.participantsService.singUpParcipant(this.reactiveForm.value)
+    if (this.reactiveFormSingUp.valid) {
+      this.participantsService.singUpParcipant(this.reactiveFormSingUp.value)
         .then(() => {
-          this.reactiveForm.reset();
+          this.reactiveFormSingUp.reset();
           this.notifications.successfullyRegistered();
         });
     }
   }
 
-  get name() { return this.reactiveForm.get('name'); }
-  get email() { return this.reactiveForm.get('email'); }
-  get password() { return this.reactiveForm.get('password'); }
+  ngAfterViewInit(): void {
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
+  }
+
+  get name() { return this.reactiveFormSingUp.get('name'); }
+  get email() { return this.reactiveFormSingUp.get('email'); }
+  get password() { return this.reactiveFormSingUp.get('password'); }
 }

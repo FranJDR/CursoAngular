@@ -1,13 +1,9 @@
-<header>
-    <div>
-        <button [routerLink]="['music']" mat-raised-button>Music</button>
-    </div>
-    <div>
-        <button [routerLink]="['participants']" mat-raised-button>Participants</button>
-    </div>
-    <div>
-        <button (click)="navigateSingInUp()" mat-raised-button>sing in/sing up</button>
-    </div>
-</header>
+<div class="topnav">
+  <a [routerLink]="['music']">Home</a>
+  <a [routerLink]="['participants']">Participants</a>
+  <div class="login-container">
+    <button type="submit" [routerLink]="['/home/singInUp']">sing in/sing up</button>
+  </div>
+</div>
 
 <router-outlet></router-outlet>

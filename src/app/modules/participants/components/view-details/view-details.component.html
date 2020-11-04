@@ -1,57 +1,63 @@
 <div class="contenedor">
 
-    <form class="myform">
-        <h2 style="color:black;  font-weight: bold; text-align: center;">PROFILE</h2>
+    <form class="myform" [formGroup]="myFormGroup" (ngSubmit)="editProfile()">
 
         <div style="display: flex; justify-content: center;">
-            <img src="https://i.blogs.es/af261d/escape_velocity/450_1000.jpg" alt="" class="myImg">
+            <img src="{{ participant.urlImg }}" alt="" class="imgRedonda">
         </div>
 
         <div class="form-row">
             <div class="col">
                 <label class="mylabel">Name :</label>
-                <input type="text" class="form-control" [(ngModel)]="participant.name" value="{{participant.name}}"
-                    placeholder="name">
+                <input type="text" class="form-control" placeholder="name" formControlName="name">
             </div>
             <div class="col">
                 <label class="mylabel">Email :</label>
-                <input type="text" class="form-control" placeholder="email" value="{{participant.email}}">
+                <input type="text" class="form-control" placeholder="email" formControlName="email">
+            </div>
+            <div class="col">
+                <label class="mylabel">Image :</label>
+                <input type="text" class="form-control" placeholder="url" formControlName="urlImg">
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="col">
-                <label class="mylabel">Center :</label>
-                <input type="text" class="form-control" placeholder="center" value="{{participant.center}}">
+        <div class=" form-row">
+                <div class="col">
+                    <label class="mylabel">Center :</label>
+                    <input type="text" class="form-control" placeholder="center" formControlName="center">
             </div>
-            <div class="col">
-                <label class="mylabel">Age :</label>
-                <input type="text" class="form-control" placeholder="age" value="{{participant.age}}">
+            <div class=" col">
+                    <label class="mylabel">Age :</label>
+                    <input type="text" class="form-control" placeholder="age" formControlName="age">
+                </div>
+                <div class="col">
+                    <label class="mylabel">Phone :</label>
+                    <input type="text" class="form-control" placeholder="phone" formControlName="phone">
+                </div>
             </div>
-        </div>
 
-        <div class="form-row">
-            <div class="col">
-                <label class="mylabel">Street :</label>
-                <input type="text" class="form-control" placeholder="Street" value="{{participant.address.street}}">
+            <div class="form-row">
+                <div class="col">
+                    <label class="mylabel">Street :</label>
+                    <input type="text" class="form-control" placeholder="Street" formControlName="street">
+                </div>
+                <div class="col">
+                    <label class="mylabel">Postal Code :</label>
+                    <input type="text" class="form-control" placeholder="postal code" formControlName="postalCode">
+                </div>
+                <div class="col">
+                    <label class="mylabel">City :</label>
+                    <input type="text" class="form-control" placeholder="city" formControlName="city">
+                </div>
+                <div class="col">
+                    <label class="mylabel">Province :</label>
+                    <input type="text" class="form-control" placeholder="province" formControlName="province">
+                </div>
             </div>
-            <div class="col">
-                <label class="mylabel">Postal Code :</label>
-                <input type="text" class="form-control" placeholder="postal code" value="{{participant.address.cp}}">
-            </div>
-            <div class="col">
-                <label class="mylabel">City :</label>
-                <input type="text" class="form-control" placeholder="city" value="{{participant.address.city}}">
-            </div>
-            <div class="col">
-                <label class="mylabel">Province :</label>
-                <input type="text" class="form-control" placeholder="province" value="{{participant.address.province}}">
-            </div>
-        </div>
 
-        <div class="form-row">
-            <button class="form-control btn btn-dark">Edit</button>
-        </div>
+            <div class="form-row">
+                <button class="form-control btn btn-dark">Edit</button>
+            </div>
 
     </form>
 

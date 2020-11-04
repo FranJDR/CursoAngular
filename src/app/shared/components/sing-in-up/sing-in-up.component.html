@@ -1,7 +1,7 @@
 <div style="margin-top: 20px;width: 60%;" class="container" id="container">
 
     <div class="form-container sign-up-container">
-        <form action="#" [formGroup]="reactiveForm" (ngSubmit)="singUp()">
+        <form [formGroup]="reactiveFormSingUp" (ngSubmit)="singUp()">
             <h1>Create Account</h1>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -41,12 +41,13 @@
                 </div>
             </div>
 
-            <button type="submit" [disabled]="!reactiveForm.valid" class="btn-send">Sign Up</button>
+            <button type="submit" [disabled]="!reactiveFormSingUp.valid" class="btn-send">Sign Up</button>
         </form>
     </div>
 
     <div class="form-container sign-in-container">
-        <form action="#">
+
+        <form [formGroup]="singInForm" (ngSubmit)="singIn()">
             <h1>Sign in</h1>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -54,14 +55,15 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="email" formControlName="email" placeholder="Email" />
+            <input type="password" formControlName="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
             <button>Sign In</button>
         </form>
+
     </div>
 
-    <div class="overlay-container">
+    <div class=" overlay-container">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>

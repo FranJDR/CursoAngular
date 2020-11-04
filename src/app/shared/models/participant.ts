@@ -9,6 +9,7 @@ export class Participant {
     phone?: string;
     age?: number;
     center?: string;
+    urlImg?: string;
 
     address?: Address;
 
