@@ -31,25 +31,7 @@ export class ParticipantsService {
   }
 
   singUpParcipant(participant: Participant): Promise<any> {
-    let aux: Participant = {
-      name: participant.name,
-      email: participant.email,
-      password: participant.password,
-      center: '',
-      phone: '',
-      age: '',
-      urlImg: 'assets/imgRandom/user.png',
-      address: {
-        street: '',
-        city: '',
-        cp: '',
-        province: ''
-      },
-      idsFavAlbum: [],
-      idsFavArtist: [],
-      idsFavSong: []
-    };
-    return this.httpClient.post(this.url, aux).toPromise()
+    return this.httpClient.post(this.url, this.getNewParticipant(participant)).toPromise()
       .then(() => {
         console.log('Usuario creado.');
       })
@@ -76,6 +58,27 @@ export class ParticipantsService {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  private getNewParticipant(participant: Participant): Participant {
+    return {
+      name: participant.name,
+      email: participant.email,
+      password: participant.password,
+      center: '',
+      phone: '',
+      age: '',
+      urlImg: 'assets/imgRandom/user.png',
+      address: {
+        street: '',
+        city: '',
+        cp: '',
+        province: ''
+      },
+      idsFavAlbum: [],
+      idsFavArtist: [],
+      idsFavSong: []
+    }
   }
 
 }

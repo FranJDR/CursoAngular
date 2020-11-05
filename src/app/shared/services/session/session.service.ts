@@ -17,7 +17,18 @@ export class SessionService {
     private participant: ParticipantsService,
     private router: Router,
     private notificationsService: NotificationsService
-  ) { }
+  ) {
+    this.loadUser();
+  }
+
+  private loadUser() {
+    let sessionId: string = sessionStorage.getItem(this.jsonID);
+    console.log('sessionId : ' + sessionId);
+    console.log(this._user);
+    if (sessionId !== null) {
+      this.participant.getParticipant(sessionId).then(res => { this._user = res; });
+    }
+  }
 
   singIn(email: string, password: string) {
     this.participant.getListParticipants().toPromise().then(res => {

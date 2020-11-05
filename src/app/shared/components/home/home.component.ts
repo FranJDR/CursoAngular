@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.name = this.sessionService.name;
     this.img = this.sessionService.urlImg;
-    console.log(name + "  " + this.img);
   }
 
   singOff() {
