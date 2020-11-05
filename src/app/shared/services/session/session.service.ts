@@ -36,7 +36,7 @@ export class SessionService {
         if (email.localeCompare(element.email) == 0 && password.localeCompare(element.password) == 0) {
           this._user = element;
           sessionStorage.setItem(this.jsonID, this._user.id);
-          this.router.navigate(['home']);
+          this.router.navigate(['home/music']);
           this.notificationsService.sessionStarted();
         }
       });
