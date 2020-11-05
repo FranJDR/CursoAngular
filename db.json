@@ -8,7 +8,7 @@
       "center": "IES Arroyo Harnina",
       "age": "23",
       "phone": "722156848",
-      "urlImg": "assets/imgRandom/user.png",
+      "urlImg": "https://img.icons8.com/plasticine/2x/image.png",
       "address": {
         "street": "Conde Osilo 4",
         "cp": "6200",
@@ -72,11 +72,11 @@
       "center": "IES Arroyo Harnina",
       "age": "24",
       "phone": "621321323",
-      "urlImg": "assets/imgRandom/user.png",
+      "urlImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0ovMAt5cy1ZG6er_0drx2YDCnxrZgpIlSNA&usqp=CAU",
       "address": {
         "street": "Carretera de Medina",
         "cp": "6310",
-        "city": "Puebla de Sancho Pérez1",
+        "city": "Puebla de Sancho Pérez",
         "province": "Badajoz"
       }
     },
@@ -223,41 +223,6 @@
         "province": "Badajoz"
       },
       "id": 14
-    },
-    {
-      "id": 15,
-      "password": "123123123",
-      "name": "prueba",
-      "email": "prueba@prueba.com",
-      "center": "123",
-      "age": "123",
-      "phone": "123",
-      "urlImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/1024px-Circle-icons-tools.svg.png",
-      "address": {
-        "street": "123",
-        "cp": "123",
-        "city": "213",
-        "province": "23"
-      }
-    },
-    {
-      "name": "prueba3",
-      "email": "prueba3@gmail.com",
-      "password": "123123123",
-      "center": "",
-      "phone": "",
-      "age": "",
-      "urlImg": "assets/imgRandom/user.png",
-      "address": {
-        "street": "",
-        "city": "",
-        "cp": "",
-        "province": ""
-      },
-      "idsFavAlbum": [],
-      "idsFavArtist": [],
-      "idsFavSong": [],
-      "id": 16
     }
   ],
   "album": [],

@@ -17,17 +17,18 @@ export class SessionService {
     private participant: ParticipantsService,
     private router: Router,
     private notificationsService: NotificationsService
-  ) {
-    this.loadUser();
-  }
+  ) { }
 
-  private loadUser() {
-    let sessionId: string = sessionStorage.getItem(this.jsonID);
-    console.log('sessionId : ' + sessionId);
-    console.log(this._user);
-    if (sessionId !== null) {
-      this.participant.getParticipant(sessionId).then(res => { this._user = res; });
-    }
+  loadUser() {
+    return new Promise<void>((resolve, reject) => {
+      console.log("SessionService.loadUser() called");
+      let sessionId: string = sessionStorage.getItem(this.jsonID);
+      if (sessionId !== null) {
+        this.participant.getParticipant(sessionId).then(res => { this._user = res; });
+        console.log('SessionService Finished');
+        resolve();
+      }
+    });
   }
 
   singIn(email: string, password: string) {

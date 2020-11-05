@@ -65,7 +65,7 @@ export class ViewDetailsComponent implements OnInit {
       center: this.myFormGroup.value.center,
       age: this.myFormGroup.value.age,
       phone: this.myFormGroup.value.phone,
-      urlImg: this.myFormGroup.value.urlImg !== '' ? this.myFormGroup.value.urlImg : 'assets/imgRandom/user.png',
+      urlImg: ''.localeCompare(this.myFormGroup.value.urlImg) !== 0 ? this.myFormGroup.value.urlImg : 'assets/imgRandom/user.png',
       address: {
         street: this.myFormGroup.value.street,
         cp: this.myFormGroup.value.postalCode,
@@ -75,7 +75,8 @@ export class ViewDetailsComponent implements OnInit {
     };
     this.participantsService.editParcipant(aux).then(() => {
       this.notificationsService.successfullyEdited();
-      this.ngOnInit();
+      // this.ngOnInit();
+      window.location.reload();
     });
   }
 
