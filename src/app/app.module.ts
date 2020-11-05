@@ -15,7 +15,7 @@ import { NotificationsService } from './shared/services/notifications/notificati
 import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
 
-export function initializeApp1(sessionService: SessionService) {
+export function initialize(sessionService: SessionService) {
   return (): Promise<any> => {
     return sessionService.loadUser();
   }
@@ -42,7 +42,7 @@ export function initializeApp1(sessionService: SessionService) {
     ParticipantsService,
     NotificationsService,
     SessionService,
-    { provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [SessionService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: initialize, deps: [SessionService], multi: true }
   ],
   bootstrap: [AppComponent]
 })
