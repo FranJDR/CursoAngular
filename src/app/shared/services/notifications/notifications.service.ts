@@ -12,8 +12,10 @@ export class NotificationsService {
     this.matSnackbar.open(message, 'ok', { duration: 3000 });
   }
 
-  successfullyRegistered() { this.open('SUCCESSFULLY REGISTERED.'); }
-  sessionStarted() { this.open('Session Started'); }
+  successfullyEdited() { this.open('Successfully Edited.'); }
+  successfullyRegistered() { this.open('Successfully Registered.'); }
+  closedSession() { this.open('Closed Session.'); }
+  sessionStarted() { this.open('Session Started.'); }
   itemDelete() { this.open('Item delete.'); }
   itemCreate() { this.open('Item create.'); }
   itemEdit() { this.open('Item edit.'); }

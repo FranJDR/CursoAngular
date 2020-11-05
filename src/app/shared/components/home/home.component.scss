@@ -52,17 +52,17 @@ body {
 }
 
 .topnav .login-container button {
-  float: right;
-  padding: 6px 10px;
-  // margin-top: 8px;
-  // margin-right: 16px;
-  margin: auto;
-  background-color: #555;
-  color: white;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
   font-size: 17px;
-  border: none;
+  color: white;
   cursor: pointer;
-  border-radius: 20px;
+  border: none;
+  background: transparent;
 }
 
 .topnav .login-container h2 {
@@ -72,7 +72,8 @@ body {
 }
 
 .topnav .login-container button:hover {
-  background-color: green;
+  background: #ddd;
+  color: black;
 }
 
 @media screen and (max-width: 600px) {

@@ -50,7 +50,6 @@ export class SingInUpComponent implements OnInit, AfterViewInit {
     let email = this.singInForm.value.email;
     let password = this.singInForm.value.password;
     this.sessionService.singIn(email, password);
-    if (this.sessionService.login) this.notifications.sessionStarted();
   }
 
   singUp(): void {

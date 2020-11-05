@@ -38,7 +38,7 @@ export class ParticipantsService {
       center: '',
       phone: '',
       age: '',
-      urlImg: '',
+      urlImg: 'assets/imgRandom/user.png',
       address: {
         street: '',
         city: '',

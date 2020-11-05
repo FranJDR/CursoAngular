@@ -1,6 +1,7 @@
+import { NotificationsService } from './../../../../shared/services/notifications/notifications.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Participant } from 'src/app/shared/models/participant';
 import { ParticipantsService } from 'src/app/shared/services/participants/participants.service';
 
@@ -11,7 +12,7 @@ import { ParticipantsService } from 'src/app/shared/services/participants/partic
 })
 export class ViewDetailsComponent implements OnInit {
 
-  participant: Participant;
+  participant: Participant = { urlImg: 'assets/imgRandom/user.png' };
 
   myFormGroup: FormGroup = new FormGroup({
     name: new FormControl(''),
@@ -23,20 +24,19 @@ export class ViewDetailsComponent implements OnInit {
     postalCode: new FormControl(''),
     city: new FormControl(''),
     province: new FormControl(''),
+    urlImg: new FormControl(''),
   });;
 
   constructor(
     private participantsService: ParticipantsService,
-    private router: ActivatedRoute
+    private activeRouter: ActivatedRoute,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit(): void {
-    let id = this.router.snapshot.paramMap.get('id');
+    let id = this.activeRouter.snapshot.paramMap.get('id');
     this.participantsService.getParticipant(id).then(res => {
       this.participant = res;
-      if (this.participant.urlImg.localeCompare('') == 0) {
-        this.participant.urlImg = this.obtenerImgRandom();
-      }
       this.myFormGroup = this.createFormGroup();
     });
   }
@@ -65,7 +65,7 @@ export class ViewDetailsComponent implements OnInit {
       center: this.myFormGroup.value.center,
       age: this.myFormGroup.value.age,
       phone: this.myFormGroup.value.phone,
-      urlImg: this.myFormGroup.value.urlImg,
+      urlImg: this.myFormGroup.value.urlImg !== '' ? this.myFormGroup.value.urlImg : 'assets/imgRandom/user.png',
       address: {
         street: this.myFormGroup.value.street,
         cp: this.myFormGroup.value.postalCode,
@@ -73,12 +73,11 @@ export class ViewDetailsComponent implements OnInit {
         province: this.myFormGroup.value.province
       }
     };
-    this.participantsService.editParcipant(aux);
-    window.location.reload();
+    this.participantsService.editParcipant(aux).then(() => {
+      this.notificationsService.successfullyEdited();
+      this.ngOnInit();
+    });
   }
 
-  obtenerImgRandom() {
-    return 'assets/imgRandom/' + Math.floor((Math.random() * (10 - 1) + 1)) + '.jpg';
-  }
 
 }

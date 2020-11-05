@@ -1,3 +1,4 @@
+import { NotificationsService } from './../notifications/notifications.service';
 import { Participant } from 'src/app/shared/models/participant';
 import { Injectable } from '@angular/core';
 import { ParticipantsService } from '../participants/participants.service';
@@ -9,11 +10,13 @@ import { Router } from '@angular/router';
 export class SessionService {
 
   private _user: Participant = {};
-  private _login: boolean = false;
+
+  private jsonID: string = 'sessionID';
 
   constructor(
     private participant: ParticipantsService,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationsService
   ) { }
 
   singIn(email: string, password: string) {
@@ -21,8 +24,9 @@ export class SessionService {
       res.forEach(element => {
         if (email.localeCompare(element.email) == 0 && password.localeCompare(element.password) == 0) {
           this._user = element;
-          this._login = true;
+          sessionStorage.setItem(this.jsonID, this._user.id);
           this.router.navigate(['home']);
+          this.notificationsService.sessionStarted();
         }
       });
     });
@@ -30,24 +34,17 @@ export class SessionService {
 
   signOff() {
     this._user = {};
-    this._login = false;
+    sessionStorage.removeItem(this.jsonID);
     this.router.navigate(['singInUp']);
-  }
-
-  obtenerImgRandom() {
-    return 'assets/imgRandom/' + Math.floor((Math.random() * (10 - 1) + 1)) + '.jpg';
+    this.notificationsService.closedSession();
   }
 
   get urlImg(): string {
-    return this._user.urlImg !== undefined ? this._user.urlImg : this.obtenerImgRandom();
+    return this._user.urlImg;
   }
 
   get name(): string {
     return this._user.name;
-  }
-
-  get login(): boolean {
-    return this._login;
   }
 
 }
