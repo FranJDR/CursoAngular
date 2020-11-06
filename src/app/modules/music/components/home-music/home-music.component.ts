@@ -13,12 +13,11 @@ export class HomeMusicComponent implements OnInit {
 
   constructor(private spotify: SpotifyService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   keyUp(event) {
     console.log(event);
-    debounceTime(1000),
+    debounceTime(1500),
       distinctUntilChanged()
     this.spotify.searchArtist(event).then(res => {
       this.artists = res.artists.items;
