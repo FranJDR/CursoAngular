@@ -31,7 +31,7 @@ export class SessionService {
     });
   }
 
-  singIn(email: string, password: string) {
+  signIn(email: string, password: string) {
     this.participant.getListParticipants().toPromise().then(res => {
       res.forEach(element => {
         if (email.localeCompare(element.email) == 0 && password.localeCompare(element.password) == 0) {

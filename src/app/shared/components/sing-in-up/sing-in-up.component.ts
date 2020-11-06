@@ -46,15 +46,15 @@ export class SingInUpComponent implements OnInit, AfterViewInit {
     });
   }
 
-  singIn(): void {
+  signIn(): void {
     let email = this.singInForm.value.email;
     let password = this.singInForm.value.password;
-    this.sessionService.singIn(email, password);
+    this.sessionService.signIn(email, password);
   }
 
-  singUp(): void {
+  signUp(): void {
     if (this.reactiveFormSingUp.valid) {
-      this.participantsService.singUpParcipant(this.reactiveFormSingUp.value)
+      this.participantsService.signUpParcipant(this.reactiveFormSingUp.value)
         .then(() => {
           this.reactiveFormSingUp.reset();
           this.notifications.successfullyRegistered();

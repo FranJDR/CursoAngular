@@ -30,7 +30,7 @@ export class ParticipantsService {
       .pipe(map((res: Participant[]) => res));
   }
 
-  singUpParcipant(participant: Participant): Promise<any> {
+  signUpParcipant(participant: Participant): Promise<any> {
     return this.httpClient.post(this.url, this.getNewParticipant(participant)).toPromise()
       .then(() => {
         console.log('Usuario creado.');
