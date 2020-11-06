@@ -1,7 +1,6 @@
 import { SpotifyService } from './../../../../shared/services/spotify/spotify.service';
 import { Component, OnInit } from '@angular/core';
-import { of, Subject } from 'rxjs';
-import { debounceTime, delay, distinctUntilChanged, map, mergeMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-music',
@@ -25,14 +24,6 @@ export class HomeMusicComponent implements OnInit {
       this.artists = res.artists.items;
       console.log(this.artists);
     });
-  }
-
-  getGenres(genres: string[]): string {
-    let retorno: string = '';
-    genres.forEach(element => {
-      retorno += element + ', ';
-    });
-    return retorno;
   }
 
 }
