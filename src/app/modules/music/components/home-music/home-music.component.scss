@@ -9,6 +9,25 @@
     width: 100%;
 }
 
+.my-card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.myTitle {
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  color: orange;
+  font-weight: bolder;
+}
+
+.mybutton {
+  margin: auto;
+  width: 50%;
+}
+
 .myimg {
     margin: auto;
     max-width: 320px;
@@ -21,13 +40,7 @@
     background-size: 100%;
   }
   
-  .title {
-    background-color: white;
-    padding:30px 40px 30px 20px;
-    background: rgba(256, 256, 256, 0.5);
-    display:inline-block;
-    font-family:Orbitron;
-  }
+
   
   @media screen and (min-width: 576px) {
   .title h1 {

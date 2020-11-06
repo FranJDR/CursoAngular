@@ -13,10 +13,18 @@ export class HomeMusicComponent implements OnInit {
   constructor(private spotify: SpotifyService) { }
 
   ngOnInit(): void {
-    this.spotify.searchArtist('Lisa').then(res => {
+    this.spotify.searchArtist('lisa').then(res => {
       this.artists = res.artists.items;
       console.log(this.artists);
     });
+  }
+
+  getGenres(genres: string[]): string {
+    let retorno: string = '';
+    genres.forEach(element => {
+      retorno += element + ', ';
+    });
+    return retorno;
   }
 
 }
