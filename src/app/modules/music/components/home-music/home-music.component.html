@@ -1,3 +1,22 @@
-<button class="btn btn-dark" [routerLink]="['artist']">Artist</button>
-<button class="btn btn-dark" [routerLink]="['album']">Albums</button>
+<!-- <button class="btn btn-dark" [routerLink]="['artist']">Artist</button> -->
+<!-- <button class="btn btn-dark" [routerLink]="['album']">Albums</button> -->
+<div class="containerCard">
+
+  <div class="card-deck" *ngFor="let artist of artists">
+    <div class="card" style="width:300px">
+      <img class="card-img-top myimg" src="{{artist.images[1].url}}" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h2 class="card-title" style="text-align: center;">{{artist.name}}</h2>
+        <p><strong> Popularity :</strong> {{artist.popularity}}</p>
+        <p><strong> Followers :</strong> {{artist.followers.total}}</p>
+        <p><strong> Genres :</strong> {{artist.genres}}</p>
+        <a href="https://en.wikipedia.org/wiki/Hurricane_Maria" class="btn btn-primary" target="_blank">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 <router-outlet></router-outlet>

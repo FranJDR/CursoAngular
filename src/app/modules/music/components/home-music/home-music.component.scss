@@ -1,3 +1,40 @@
 * {
     margin: 10px;
 }
+
+.containerCard {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 100%;
+}
+
+.myimg {
+    margin: auto;
+    max-width: 320px;
+    max-height: 320px;
+}
+
+
+.jumbotron.hurricane {
+    background: url(https://grist.files.wordpress.com/2018/09/hurricanes-florence-hugo.jpg?w=1024&h=576&crop=1) no-repeat;
+    background-size: 100%;
+  }
+  
+  .title {
+    background-color: white;
+    padding:30px 40px 30px 20px;
+    background: rgba(256, 256, 256, 0.5);
+    display:inline-block;
+    font-family:Orbitron;
+  }
+  
+  @media screen and (min-width: 576px) {
+  .title h1 {
+      font-size:4rem;
+  }
+  .title p {
+    font-size:2rem;
+  }
+  }
+  

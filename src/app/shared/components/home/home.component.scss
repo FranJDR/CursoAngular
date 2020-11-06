@@ -7,7 +7,9 @@ body {
 
 .topnav {
   overflow: hidden;
-  background: linear-gradient(10deg, #3399ff, #cc66ff);
+  // background: linear-gradient(10deg, black,white);
+  background-color: black;
+  border-bottom: 1px solid white;
 }
 
 .myimg {
@@ -70,6 +72,7 @@ body {
   margin-right: 10px;
   margin: auto;
   margin-right: 5px;
+  color: white;
 }
 
 .topnav .login-container button:hover {

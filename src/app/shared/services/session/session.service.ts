@@ -25,10 +25,10 @@ export class SessionService {
       if (sessionId !== null) {
         this.participant.getParticipant(sessionId).then(res => {
           this._user = res;
-          resolve();
+          resolve(console.log('Se ha encontrado una session abierta.'));
         });
       } else {
-        resolve();
+        resolve(console.log('No se ha encontrado una session abierta.'));
       }
     });
   }

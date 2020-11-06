@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeMusicComponent implements OnInit {
 
+  artists: any;
+
   constructor(private spotify: SpotifyService) { }
 
   ngOnInit(): void {
-    console.log();
+    this.spotify.searchArtist('Lisa').then(res => {
+      this.artists = res.artists.items;
+      console.log(this.artists);
+    });
   }
 
 }

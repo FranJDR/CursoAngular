@@ -7,21 +7,21 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
 
-  constructor(private httpClient: HttpClient) {
-    this.searchArtist('Lisa').then(res => console.log(res));
-  }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   private getQuery(query: string) {
     const url = `https://api.spotify.com/v1/${query}`;
     const headers: HttpHeaders = new HttpHeaders({
       Authorization:
-        "Bearer BQCgb-2y-ojjmuYJb76igbP8dYGfsl2G890HpwJlSdZctl59SaMAkJm2mLSpZM0T2XcAgfZvWIzdbTJ4sUFp4bkTpQ7pj31IZmplMDJDMvQRFMIJ3mfj6VrkZONjoA486rHUE_gT"
+        "Bearer BQDnzOQjUUzDyfC2lAXED3jOX3CnMc19xFv10yBE4j8Bs0pIBjXJTohw2583uV1NJW30j8kTU5T_hd6gY2VoyXSGalYaXqY6sz-dtQMDbK5DyAAFvr6aqzfC_T-D_yAkD3RIVTcA"
     });
     return this.httpClient.get(url, { headers });
   }
 
   searchArtist(nameArtist: string): Promise<any> {
-    return this.getQuery('https://api.spotify.com/v1/search?q=' + nameArtist + '&type=artist').toPromise();
+    return this.getQuery(`search?q=${nameArtist}&type=artist`).toPromise();
   }
 
   getArtista(idArtist: string) {
