@@ -14,6 +14,7 @@ import { ParticipantsService } from './shared/services/participants/participants
 import { NotificationsService } from './shared/services/notifications/notifications.service';
 import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
+import { SpotifyService } from './shared/services/spotify/spotify.service';
 
 export function initialize(sessionService: SessionService) {
   return (): Promise<any> => {
@@ -41,6 +42,7 @@ export function initialize(sessionService: SessionService) {
   providers: [
     ParticipantsService,
     NotificationsService,
+    SpotifyService,
     SessionService,
     { provide: APP_INITIALIZER, useFactory: initialize, deps: [SessionService], multi: true }
   ],

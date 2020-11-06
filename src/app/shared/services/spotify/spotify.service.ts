@@ -1,78 +1,48 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Album } from '../../models/album';
-import { Artist } from '../../models/artist';
-import { Song } from '../../models/song';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
-  private urlArtist: string = '';
-  private urlAlbum: string = '';
-  private urlSong: string = '';
-
-  constructor(private httpClient: HttpClient) { }
-
-  public getListArtist(id) {
-    return null;
+  constructor(private httpClient: HttpClient) {
+    this.searchArtist('Lisa').then(res => console.log(res));
   }
 
-  public getListFavArtist(idsFavArtist: string[]): Promise<Artist> {
-    return new Promise(res => {
-      var retorno: Artist[] = [];
-      for (let i = 0; i < idsFavArtist.length; i++) {
-        this.getArtist(idsFavArtist[i]).then((res: Artist) => {
-          retorno.push(res);
-        });
-      }
-      return retorno;
+  private getQuery(query: string) {
+    const url = `https://api.spotify.com/v1/${query}`;
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization:
+        "Bearer BQCgb-2y-ojjmuYJb76igbP8dYGfsl2G890HpwJlSdZctl59SaMAkJm2mLSpZM0T2XcAgfZvWIzdbTJ4sUFp4bkTpQ7pj31IZmplMDJDMvQRFMIJ3mfj6VrkZONjoA486rHUE_gT"
     });
+    return this.httpClient.get(url, { headers });
   }
 
-  public getListAlbums(idArtist: string) {
-    return null;
+  searchArtist(nameArtist: string): Promise<any> {
+    return this.getQuery('https://api.spotify.com/v1/search?q=' + nameArtist + '&type=artist').toPromise();
   }
 
-  public getListFavAlbums(idsFavAlbums: string[]): Promise<Album[]> {
-    return new Promise(res => {
-      var retorno: Album[] = [];
-      for (let i = 0; i < idsFavAlbums.length; i++) {
-        this.getAlbum(idsFavAlbums[i]).then((res: Album) => {
-          retorno.push(res);
-        });
-      }
-      return retorno;
-    });
+  getArtista(idArtist: string) {
+    return this.getQuery(`artists/${idArtist}`)
+      .pipe(map(data => data['artists'].items));
   }
 
-  public getListSongs(idAlbum: string) {
-    return null;
+  getTopTracks(idArtist: string) {
+    return this.getQuery(`artists/${idArtist}/top-tracks?country=us`)
+      .pipe(map(data => data["tracks"]));
   }
 
-  public getListFavSongs(idsFavSongs: string[]): Promise<Song[]> {
-    return new Promise(res => {
-      var retorno: Song[] = [];
-      for (let i = 0; i < idsFavSongs.length; i++) {
-        this.getSong(idsFavSongs[i]).then((res: Song) => {
-          retorno.push(res);
-        });
-      }
-      return retorno;
-    });
+  getAlbums(idArtist: string) {
+    return this.getQuery(`artists/${idArtist}/albums`).toPromise();
+    // .pipe(map((data: any) => data.items));
   }
 
-  private getArtist(id): Promise<Artist> {
-    return this.httpClient.get(this.urlArtist + '/' + id).toPromise();
+  getAlbum(idAlbum: string) {
+    return this.getQuery(`albums/${idAlbum}`).toPromise();
+    // .pipe(map((data: any) => data));
   }
 
-  private getAlbum(id): Promise<Album> {
-    return this.httpClient.get(this.urlAlbum + '/' + id).toPromise();
-  }
-
-  private getSong(id): Promise<Song> {
-    return this.httpClient.get(this.urlSong + '/' + id).toPromise();
-  }
 
 }

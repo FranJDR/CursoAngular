@@ -21,11 +21,13 @@ export class SessionService {
 
   loadUser() {
     return new Promise<void>((resolve, reject) => {
-      console.log("SessionService.loadUser() called");
       let sessionId: string = sessionStorage.getItem(this.jsonID);
       if (sessionId !== null) {
-        this.participant.getParticipant(sessionId).then(res => { this._user = res; });
-        console.log('SessionService Finished');
+        this.participant.getParticipant(sessionId).then(res => {
+          this._user = res;
+          resolve();
+        });
+      } else {
         resolve();
       }
     });

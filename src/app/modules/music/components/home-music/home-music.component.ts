@@ -1,3 +1,4 @@
+import { SpotifyService } from './../../../../shared/services/spotify/spotify.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeMusicComponent implements OnInit {
 
-  constructor() { }
+  constructor(private spotify: SpotifyService) { }
 
   ngOnInit(): void {
     console.log();
