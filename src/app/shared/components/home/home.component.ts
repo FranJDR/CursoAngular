@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.img = this.sessionService.urlImg;
   }
 
-  singOff() {
+  signOff() {
     this.sessionService.signOff();
   }
 

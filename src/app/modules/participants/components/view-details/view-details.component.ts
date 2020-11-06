@@ -75,8 +75,8 @@ export class ViewDetailsComponent implements OnInit {
     };
     this.participantsService.editParcipant(aux).then(() => {
       this.notificationsService.successfullyEdited();
-      // this.ngOnInit();
-      window.location.reload();
+      this.ngOnInit();
+      // window.location.reload();
     });
   }
 
