@@ -19,5 +19,7 @@ export class NotificationsService {
   itemDelete() { this.open('Item delete.'); }
   itemCreate() { this.open('Item create.'); }
   itemEdit() { this.open('Item edit.'); }
+  addedToFavorites() { this.open('Added to Favorites'); }
+
 
 }

@@ -20,12 +20,23 @@ export class HomeMusicComponent implements OnInit {
   }
 
   keyUp(event) {
-    console.log(event);
     debounceTime(1500);
     distinctUntilChanged();
     this.spotify.searchArtist(event).then(res => {
       this.artists = res.artists.items;
+      console.log(res);
     });
   }
 
+  addFavourite(): void {
+
+  }
+
+  removeFavourite(): void {
+
+  }
+
+  isFavourite(idArtist): boolean {
+    return false;
+  }
 }

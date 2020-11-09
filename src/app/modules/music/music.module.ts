@@ -11,6 +11,7 @@ import { AlbumComponent } from './components/album/album.component';
 import { ViewArtistComponent } from './components/view-artist/view-artist.component';
 import { ViewAlbumsComponent } from './components/view-albums/view-albums.component';
 import { ViewSongsComponent } from './components/view-songs/view-songs.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ViewSongsComponent } from './components/view-songs/view-songs.component
     CommonModule,
     RouterModule,
     MusicRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class MusicModule { }

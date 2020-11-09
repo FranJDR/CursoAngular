@@ -3,34 +3,35 @@ import { Participant } from 'src/app/shared/models/participant';
 import { Injectable } from '@angular/core';
 import { ParticipantsService } from '../participants/participants.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 
-  private _user: Participant = {};
+  private _user: Participant;
 
   private jsonID: string = 'sessionID';
 
   constructor(
     private participant: ParticipantsService,
-    private router: Router,
-    private notificationsService: NotificationsService
+    private notificationsService: NotificationsService,
+    private router: Router
   ) { }
 
   loadUser() {
     return new Promise<void>((resolve, reject) => {
       let sessionId: string = sessionStorage.getItem(this.jsonID);
-      if (sessionId !== null) {
+      if (sessionId !== null)
         this.participant.getParticipant(sessionId).then(res => {
           this._user = res;
-          resolve(console.log('Se ha encontrado una session abierta.'));
         });
-      } else {
-        resolve(console.log('No se ha encontrado una session abierta.'));
-      }
     });
+  }
+
+  addArtistFavourite(idArtist: string): void {
+    this.participant.addArtistFavourite(idArtist, this._user);
   }
 
   signIn(email: string, password: string) {
@@ -49,7 +50,7 @@ export class SessionService {
   signOff() {
     this._user = {};
     sessionStorage.removeItem(this.jsonID);
-    this.router.navigate(['singInUp']);
+    this.router.navigate(['signInUp']);
     this.notificationsService.closedSession();
   }
 

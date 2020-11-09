@@ -1,5 +1,5 @@
 import { SessionService } from './../../services/session/session.service';
-import { Component, OnInit, AfterViewInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from '../../services/notifications/notifications.service';
 import { ParticipantsService } from '../../services/participants/participants.service';

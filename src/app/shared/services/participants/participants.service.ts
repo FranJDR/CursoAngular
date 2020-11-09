@@ -1,4 +1,4 @@
-import { Address } from './../../models/address';
+import { NotificationsService } from './../notifications/notifications.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,17 +12,24 @@ export class ParticipantsService {
 
   private url: string = 'http://localhost:3000/participants';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private notificationsService: NotificationsService
+  ) { }
 
-  singIn(): void {
-    sessionStorage.setItem('id', '');
-    if (sessionStorage) {
-
-    }
+  addArtistFavourite(idArtist: string, user: Participant): void {
+    user.idsFavArtist.push(idArtist);
+    this.editParcipant(user).then(() => {
+      this.notificationsService.addedToFavorites();
+    });
   }
 
   getParticipant(id: string): Promise<Participant> {
     return this.httpClient.get(this.url + '/' + id).toPromise();
+  }
+
+  getObsParticipant(id: string): Observable<Participant> {
+    return this.httpClient.get(this.url + '/' + id).pipe(map((res: Participant) => res));
   }
 
   getListParticipants(): Observable<Participant[]> {
@@ -34,30 +41,21 @@ export class ParticipantsService {
     return this.httpClient.post(this.url, this.getNewParticipant(participant)).toPromise()
       .then(() => {
         console.log('Usuario creado.');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      }).catch(err => console.log);
   }
 
   editParcipant(user: Participant): Promise<any> {
     return this.httpClient.put(this.url + '/' + user.id, user).toPromise()
       .then(() => {
         console.log('Usuario editado.');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      }).catch(err => console.log);
   }
 
   deleteParcipant(id: string): Promise<any> {
     return this.httpClient.delete(this.url + '/' + id).toPromise()
       .then(() => {
         console.log('Usuario eliminado.');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      }).catch(err => console.log);
   }
 
   private getNewParticipant(participant: Participant): Participant {
