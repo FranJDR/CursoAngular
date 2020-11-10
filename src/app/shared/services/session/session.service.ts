@@ -41,12 +41,13 @@ export class SessionService {
   }
 
   getListArtistFavourite() {
-    let retorno: any;
+    let retorno: any[];
     this._user.idsFavArtist.forEach(element => {
       this.spotify.getArtista(element).then(res => {
         retorno.push(res);
       });
     });
+    console.log(retorno);
     return retorno;
   }
 

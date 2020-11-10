@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Participant } from '../../models/participant';
-import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +29,9 @@ export class ParticipantsService {
 
   removeArtistFavourite(idArtist: string, user: Participant): void {
     user.idsFavArtist.splice(user.idsFavArtist.indexOf(idArtist), 1);
-    this.editParcipant(user);
+    this.editParcipant(user).then(() => {
+      this.notificationsService.removedFromFavorites();
+    });
   }
 
   getParticipant(id: string): Promise<Participant> {

@@ -28,7 +28,6 @@ export class HomeMusicComponent implements OnInit {
     distinctUntilChanged();
     this.spotify.searchArtist(event).then(res => {
       this.artists = res.artists.items;
-      console.log(res);
     });
   }
 
