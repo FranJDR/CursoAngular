@@ -23,10 +23,14 @@ export class SessionService {
   loadUser() {
     return new Promise<void>((resolve, reject) => {
       let sessionId: string = sessionStorage.getItem(this.jsonID);
-      if (sessionId !== null)
-        this.participant.getParticipant(sessionId).then(res => {
+      if (sessionId !== null) {
+        this.participant.getObsParticipant(sessionId).subscribe(res => {
           this._user = res;
+          resolve();
         });
+      } else {
+        resolve();
+      }
     });
   }
 
