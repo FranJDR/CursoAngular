@@ -48,7 +48,7 @@ export class ViewDetailsComponent implements OnInit {
       center: new FormControl(this.participant.center),
       age: new FormControl(this.participant.age),
       phone: new FormControl(this.participant.phone),
-      urlImg: new FormControl(''),
+      urlImg: new FormControl(this.participant.urlImg),
       street: new FormControl(this.participant.address.street),
       postalCode: new FormControl(this.participant.address.cp),
       city: new FormControl(this.participant.address.city),
