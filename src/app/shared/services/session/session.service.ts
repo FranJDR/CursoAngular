@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { ParticipantsService } from '../participants/participants.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { SpotifyService } from '../spotify/spotify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class SessionService {
   constructor(
     private participant: ParticipantsService,
     private notificationsService: NotificationsService,
-    private router: Router
+    private router: Router,
+    private spotify: SpotifyService
   ) { }
 
   loadUser() {
@@ -38,6 +40,16 @@ export class SessionService {
     this.participant.addArtistFavourite(idArtist, this._user);
   }
 
+  getListArtistFavourite() {
+    let retorno: any;
+    this._user.idsFavArtist.forEach(element => {
+      this.spotify.getArtista(element).then(res => {
+        retorno.push(res);
+      });
+    });
+    return retorno;
+  }
+
   signIn(email: string, password: string) {
     this.participant.getListParticipants().toPromise().then(res => {
       res.forEach(element => {
@@ -49,6 +61,14 @@ export class SessionService {
         }
       });
     });
+  }
+
+  removeArtistFavourite(idArtist: string): void {
+    this.participant.removeArtistFavourite(idArtist, this._user);
+  }
+
+  isArtistFavourite(idArtist: string): boolean {
+    return this._user.idsFavArtist.indexOf(idArtist) !== -1;
   }
 
   signOff() {

@@ -1,7 +1,7 @@
 import { NotificationsService } from './../../../../shared/services/notifications/notifications.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Participant } from 'src/app/shared/models/participant';
 import { ParticipantsService } from 'src/app/shared/services/participants/participants.service';
 
@@ -76,7 +76,6 @@ export class ViewDetailsComponent implements OnInit {
     this.participantsService.editParcipant(aux).then(() => {
       this.notificationsService.successfullyEdited();
       this.ngOnInit();
-      // window.location.reload();
     });
   }
 

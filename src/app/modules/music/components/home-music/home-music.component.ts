@@ -1,6 +1,7 @@
 import { SpotifyService } from './../../../../shared/services/spotify/spotify.service';
 import { Component, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { SessionService } from 'src/app/shared/services/session/session.service';
 
 @Component({
   selector: 'app-home-music',
@@ -11,7 +12,10 @@ export class HomeMusicComponent implements OnInit {
 
   artists: any;
 
-  constructor(private spotify: SpotifyService) { }
+  constructor(
+    private spotify: SpotifyService,
+    private session: SessionService
+  ) { }
 
   ngOnInit(): void {
     this.spotify.searchArtist('a').then(res => {
@@ -28,15 +32,15 @@ export class HomeMusicComponent implements OnInit {
     });
   }
 
-  addFavourite(): void {
-
+  addFavourite(idArtist: string): void {
+    this.session.addArtistFavourite(idArtist);
   }
 
-  removeFavourite(): void {
-
+  removeFavourite(idArtist: string): void {
+    this.session.removeArtistFavourite(idArtist);
   }
 
   isFavourite(idArtist): boolean {
-    return false;
+    return this.session.isArtistFavourite(idArtist);
   }
 }

@@ -22,12 +22,12 @@
 
     <div class="divStar">
 
-      <button class="btnStar" *ngIf="!isFavourite(artist.id)" (click)="addFavourite()">
+      <button class="btnStar" *ngIf="!isFavourite(artist.id)" (click)="addFavourite(artist.id)">
         <label class="labelstar">★</label>
         <h2 class="myTitle">{{artist.name}}</h2>
       </button>
 
-      <button class="btnStar" *ngIf="isFavourite(artist.id)" (click)="removeFavourite()">
+      <button class="btnStar" *ngIf="isFavourite(artist.id)" (click)="removeFavourite(artist.id)">
         <label class="isFavourite">★</label>
         <h2 class="myTitle">{{artist.name}}</h2>
       </button>

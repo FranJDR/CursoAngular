@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Participant } from '../../models/participant';
+import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,18 @@ export class ParticipantsService {
   ) { }
 
   addArtistFavourite(idArtist: string, user: Participant): void {
+    if (user.idsFavArtist == null) {
+      user.idsFavArtist = [];
+    }
     user.idsFavArtist.push(idArtist);
     this.editParcipant(user).then(() => {
       this.notificationsService.addedToFavorites();
     });
+  }
+
+  removeArtistFavourite(idArtist: string, user: Participant): void {
+    user.idsFavArtist.splice(user.idsFavArtist.indexOf(idArtist), 1);
+    this.editParcipant(user);
   }
 
   getParticipant(id: string): Promise<Participant> {

@@ -25,8 +25,8 @@ export class SpotifyService {
   }
 
   getArtista(idArtist: string) {
-    return this.getQuery(`artists/${idArtist}`)
-      .pipe(map(data => data['artists'].items));
+    return this.getQuery(`artists/${idArtist}`).toPromise();
+      // .pipe(map(data => data['artists'].items));
   }
 
   getTopTracks(idArtist: string) {
